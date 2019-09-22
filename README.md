@@ -1,6 +1,6 @@
 # JavaScript and DOM Manipulation Homework
 
-![ToyStory Martians](Images/martians.jpg)
+![ToyStory Martians](Images/martians.png)
 
 The extra-terrestrial menace has come to Earth and we need to be prepared. We have collected all eye-witness reports; what we need now is put this information online for the world to see. Your mission, should you chose to accept it is to transform a JSON-format file into a beautiful site in which our faithful followers will be able to query all sightings.
 
