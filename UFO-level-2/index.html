@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>UFO Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/solar/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper  back_image">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">UFO Sightings
+            <img class="nav-ufo" src="static/images/ufo.svg">
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="hero text-center">
+      <h1>UFO Sightings</h1>
+      <p>The Truth is Out There</p>
+    </div>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-3">
+          <aside class="filters">
+            <div class="panel panel-default">
+              <div class="panel-heading">Filter Search</div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <ul class="list-group" id="filters">
+                      <li class="filter list-group-item">
+                        <label for="datefrom">Date</label>
+                        <input class="form-control" id="datetimefrom" type="date" placeholder="1/11/2011">
+                        <label for="city">City</label>
+                        <input class="form-control" id="city" type="text" placeholder="roswell">
+                        <label for="state">State</label>
+                        <select id="state" class="form-control">                           
+                          <option></option>
+                          <option value="al">AL</option>
+                          <option value="ar">AR</option>
+                          <option value="az">AZ</option>
+                          <option value="ak">AK</option>
+                          <option value="ca">CA</option>
+                          <option value="co">CO</option>
+                          <option value="ct">CT</option>
+                          <option value="fl">FL</option>
+                          <option value="ga">GA</option>
+                          <option value="ia">IA</option>
+                          <option value="in">IN</option>
+                          <option value="ks">KS</option>
+                          <option value="ky">KY</option>
+                          <option value="la">LA</option>
+                          <option value="ma">MA</option>
+                          <option value="mi">MI</option>
+                          <option value="md">MD</option>
+                          <option value="mo">MO</option>
+                          <option value="ms">MS</option>
+                          <option value="nm">NM</option>
+                          <option value="nc">NC</option>
+                          <option value="nh">NH</option>
+                          <option value="nj">NJ</option>
+                          <option value="ny">NY</option>
+                          <option value="oh">OH</option>
+                          <option value="on">ON</option>
+                          <option value="or">OR</option>
+                          <option value="pa">PA</option>
+                          <option value="sc">SC</option>
+                          <option value="tn">TN</option>
+                          <option value="tx">TX</option>
+                          <option value="va">VA</option>
+                          <option value="wa">WA</option>
+                          <option value="wi">WI</option>
+                          <option value="wv">WV</option>
+                        </select>                         <label for="country">Country</label>
+                        <select id="country" class="form-control"> 
+                          <option></option>
+                          <option value="us">US</option>
+                          <option value="ca">Canada</option>
+                        </select>                  
+                        <label for="shape">Shape</label>
+                        <select id="shape" class="form-control"> 
+                          <option></option>
+                          <option value="chevron">Chevron</option>
+                          <option value="changing">Changing</option>
+                          <option value="cigar">Cigar</option>
+                          <option value="circle">Circle</option>
+                          <option value="cross">Cross</option>
+                          <option value="cylinder">Cylinder</option>
+                          <option value="disk">Disk</option>
+                          <option value="fireball">Fireball</option>
+                          <option value="flash">Flash</option>
+                          <option value="formation">Formation</option>
+                          <option value="light">Light</option>
+                          <option value="other">Other</option>
+                          <option value="oval">Oval</option>
+                          <option value="sphere">Sphere</option>
+                          <option value="teardrop">Teardrop</option>
+                          <option value="triangle">Triangle</option>
+                          <option value="unknown">Unknown</option>
+                        </select>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col text-center">
+                    <button id="filter-btn" type="button" class="btn btn-default active srch_btn">Filter Table</button>
+                    <button id="clean-btn" type="button" class="btn btn-default active clean_btn">Clean Filters</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="col-md-9">
+          <div id="table-area" class="">
+            <table id="ufo-table" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="table-head">Date</th>
+                  <th class="table-head">City</th>
+                  <th class="table-head">State</th>
+                  <th class="table-head">Country</th>
+                  <th class="table-head">Shape</th>
+                  <th class="table-head">Duration</th>
+                  <th class="table-head">Comments</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <span class="bottom">UFO Sightings</span>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="static/js/data.js"></script>
+  <script src="static/js/app.js"></script>
+  <!-- This library is required for datetime formatting -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+</body>
+
+</html>
